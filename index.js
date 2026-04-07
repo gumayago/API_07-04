@@ -1,7 +1,6 @@
 const express = require("express");
 const mysql = require("mysql2/promise");
 const cors = require("cors");
-const path = require("path");
 
 const app = express();
 app.use(cors());
@@ -15,7 +14,7 @@ const db = mysql.createPool({
 });
 
 // ── CATEGORIAS ─────────────────────────────────────────
-app.get("/categorias", async (req, res) => {
+app.get("/categorias", async (_, res) => {
   const [rows] = await db.query("SELECT * FROM categorias");
   res.json(rows);
 });
@@ -27,9 +26,9 @@ app.get("/categorias/:id", async (req, res) => {
 });
 
 app.post("/categorias", async (req, res) => {
-  const { id, nome } = req.body;
-  await db.query("INSERT INTO categorias VALUES (?, ?)", [id, nome]);
-  res.status(201).json(req.body);
+  const { nome } = req.body;
+  const [result] = await db.query("INSERT INTO categorias (nome) VALUES (?)", [nome]);
+  res.status(201).json({ id: result.insertId, nome });
 });
 
 app.put("/categorias/:id", async (req, res) => {
@@ -44,7 +43,7 @@ app.delete("/categorias/:id", async (req, res) => {
 });
 
 // ── JOGOS ──────────────────────────────────────────────
-app.get("/jogos", async (req, res) => {
+app.get("/jogos", async (_, res) => {
   const [rows] = await db.query(`
     SELECT jogos.*, categorias.nome AS categoria
     FROM jogos
@@ -65,9 +64,9 @@ app.get("/jogos/:id", async (req, res) => {
 });
 
 app.post("/jogos", async (req, res) => {
-  const { id, nome, genero, categoria_id } = req.body;
-  await db.query("INSERT INTO jogos VALUES (?, ?, ?, ?)", [id, nome, genero, categoria_id]);
-  res.status(201).json(req.body);
+  const { nome, genero, categoria_id } = req.body;
+  const [result] = await db.query("INSERT INTO jogos (nome, genero, categoria_id) VALUES (?, ?, ?)", [nome, genero, categoria_id]);
+  res.status(201).json({ id: result.insertId, nome, genero, categoria_id });
 });
 
 app.put("/jogos/:id", async (req, res) => {
