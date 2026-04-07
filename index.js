@@ -13,13 +13,6 @@ const db = mysql.createPool({
   database: "jogosdb",
 });
 
-// ── garante AUTO_INCREMENT nas tabelas ─────────────────
-async function migrate() {
-  await db.query("ALTER TABLE categorias MODIFY id INT NOT NULL AUTO_INCREMENT");
-  await db.query("ALTER TABLE jogos MODIFY id INT NOT NULL AUTO_INCREMENT");
-}
-migrate().catch(() => {}); // ignora se já estiver correto
-
 // ── CATEGORIAS ─────────────────────────────────────────
 app.get("/categorias", async (_, res) => {
   const [rows] = await db.query("SELECT * FROM categorias");
