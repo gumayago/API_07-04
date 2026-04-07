@@ -1,8 +1,10 @@
 const express = require("express");
 const mysql = require("mysql2/promise");
+const cors = require("cors");
 const path = require("path");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const db = mysql.createPool({
@@ -77,10 +79,6 @@ app.put("/jogos/:id", async (req, res) => {
 app.delete("/jogos/:id", async (req, res) => {
   await db.query("DELETE FROM jogos WHERE id=?", [req.params.id]);
   res.json({ deleted: req.params.id });
-});
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
 app.listen(3001, () => console.log("Rodando em http://localhost:3001"));
