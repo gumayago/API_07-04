@@ -22,10 +22,11 @@ async function carregarJogos() {
     lista.innerHTML = dados.map ( qualquerCoisa => 
     `
    <div class="card">
+        <img src="https://placehold.co" alt="Placeholder">
         <h3>${qualquerCoisa.nome}</h3>
         <p id="jorge"> <span>${qualquerCoisa.genero} </span></p>
         <button><a href="https://i.pinimg.com/originals/d7/3e/f6/d73ef6f4186be91e27ef96ee375acc3f.png">Saiba Mais </a></button>
-        <button><a href="/front-end/index.html"> Saiba Mais </a></button>
+        <button>    <a href="./jogo.html">saiba mais</a> </button>
     </div>
 
     `
@@ -37,3 +38,4 @@ async function carregarJogos() {
 
 carregarJogos()
 carregarCategorias()
+

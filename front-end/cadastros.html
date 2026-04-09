@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>cadastro</title>
+</head>
+<body>
+    <header>
+        <h1>jogos API</h1>
+        <nav>
+            <a href="index.html" class="active">Inicio</a>
+            <a href="cadastros.html" class="active">cadastros</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">cadastro</p>
+            <h2>cadastrar categorias e jogos</h2>
+        </section>      
+
+       <section class="grid-2">
+            <article class="panel">
+                <h3> Nova categoria</h3>
+                <form id="categoria-form" class="stack">
+                    <input type="text" id="categoria-nome" placeholder="nome" required />
+                    <button type="submit">cadastrar categoria</button>
+                </form>
+            </article>
+
+             <article class="panel">
+                <h3> Novo Jogo</h3>
+                <form id="jogo-form" class="stack">
+                    <input type="text" id="jogo-nome" placeholder="nome" required>
+                      <input type="text" id="jogo-genero" placeholder="jogo-genero" required>
+                    <button id="cabra" type="submit">cadastrar jogo</button>
+                </form>
+            </article>
+
+       
+        <article class="panel">
+            <h3>cadastrar-se:</h3>
+            <br>
+            <form id="meuFormulario">
+                <label for="name">seu nome</label>
+                <br>
+                <input type="text" name="nome" placeholder="Seu nome" required>
+                <br><br>
+                <label for="email">email</label>
+                <br>
+                <input type="email" name="email" placeholder="Seu email" required>
+                <br><br>
+                <button type="submit">Enviar</button>
+            </form>
+        </article>
+
+        </section>      
+    </main>
+    <script src="js/cadastro.js"></script>
+
+</body>
+</html>
