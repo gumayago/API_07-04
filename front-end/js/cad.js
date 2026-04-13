@@ -1,10 +1,4 @@
 
-botao = document.getElementById("cabra")
-
-botao.addEventlsitenner ( SubmitEvent) {
- 
-}
-
 const formulario = document.getElementById('meuFormulario');
 
 formulario.addEventListener('submit', function(event) {

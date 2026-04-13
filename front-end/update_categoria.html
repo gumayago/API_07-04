@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Categoria | Jogos API</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+<body>
+  <header>
+    <h1>Jogos API</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="cadastro.html">Cadastros</a>
+      <a href="update_categoria.html">editar categoria</a>
+      <a href="update_jogo.html">editar jogo</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">Edição</p>
+      <h2>Editar Categoria</h2>
+    </section>
+
+    <section class="panel stack">
+      <form id="update-form" class="stack">
+        <input type="text" id="categoria-nome" placeholder="Nome" required />
+        <div class="row-wrap">
+          <button type="submit"><i class="bi bi-check-lg"></i> Salvar Alterações</button>
+          <a href="index.html" class="btn-secondary"><i class="bi bi-arrow-left"></i> Voltar</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/update_categoria.js"></script>
+</body>
+</html>

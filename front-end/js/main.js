@@ -1,41 +1,40 @@
 async function carregarCategorias() {
-    const response = await fetch ("http://localhost:3001/categorias")
-    const data = await response.json()
-    console.log(data);
-    const list= document.getElementById("categorias-list")
-    list.innerHTML = data.map (categoria =>
-    `
-    <li>${categoria.nome}</li>
-        create.innerHTML
+  const response = await fetch(`http://localhost:3001/categorias`);
+  const data = await response.json();
 
-
-    `
-
-     ).join("")
-};
-
-
-async function carregarJogos() {
-    const respostaApi = await fetch ("http://localhost:3001/jogos") //resposta da api (objeto q ela retorna)
-    const dados = await respostaApi.json() // da resposta vinda pegue apenas o objeto 
-    const lista = document.getElementById("jogos-list")
-    lista.innerHTML = dados.map ( qualquerCoisa => 
-    `
-   <div class="card">
-        <img src="https://placehold.co" alt="Placeholder">
-        <h3>${qualquerCoisa.nome}</h3>
-        <p id="jorge"> <span>${qualquerCoisa.genero} </span></p>
-        <button><a href="https://i.pinimg.com/originals/d7/3e/f6/d73ef6f4186be91e27ef96ee375acc3f.png">Saiba Mais </a></button>
-        <button>    <a href="./jogo.html">saiba mais</a> </button>
-    </div>
-
-    `
-
-        
-
-    )
+  document.getElementById("categorias-list").innerHTML = data
+    .map(c => `
+      <li>
+        <span>#${c.id} ${c.nome}</span>
+        <a href="update_categoria.html?id=${c.id}" class="edit-icon" title="Editar categoria">
+          <i class="bi bi-pencil-square"></i>
+        </a>
+      </li>`)
+    .join("");
 }
 
-carregarJogos()
-carregarCategorias()
+async function carregarJogos() {
+  const response = await fetch(`http://localhost:3001/jogos`);
+  const data = await response.json();
 
+  document.getElementById("jogos-list").innerHTML = data
+    .map(j => `
+      <li>
+        <a class="jogo-link" href="jogo.html?id=${j.id}">#${j.id} ${j.nome}</a>
+        <span class="jogo-meta">(${j.genero}) - ${j.categoria || "sem categoria"}</span>
+        <a href="update_jogo.html?id=${j.id}" class="edit-icon" title="Editar jogo">
+        <i class="bi bi-pencil-square"></i>
+         <a href="update_jogo.html?id=${j.id}" class="edit-icon" title="Editar jogo">
+        <i class="bi bi-x-circle-fill"></i>
+        </a>
+      </li>`)
+    .join("");
+}
+
+carregarCategorias();
+carregarJogos();
+/*
+      
+
+        <button><a href="https://i.pinimg.com/originals/d7/3e/f6/d73ef6f4186be91e27ef96ee375acc3f.png">Saiba Mais </a></button>
+        <button>    <a href="./jogo.html">saiba mais</a> </button>  */

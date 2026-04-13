@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Detalhes do Jogo - API</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes do Jogo | Jogos API</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="sstyle.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 </head>
 <body>
-    <header>
-        <h1>jogos API</h1>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="">cadastros</a>
-        </nav>
-    </header>
+  <header>
+    <h1>Jogos API</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="cadastro.html">Cadastros</a>
+        <a href="update_categoria.html">editar categoria</a>
+      <a href="update_jogo.html">editar jogo </a>
+    </nav>
+  </header>
 
-    <main class="container">
-    <h3>vai te lascar</h3>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">Consulta</p>
+      <h2>Detalhes do Jogo</h2>
+    </section>
 
-    </main>
+    <section class="panel stack">
+      <div id="resultado" class="detail-card"></div>
+    </section>
+  </main>
 
-    <!-- Script específico para carregar os dados do jogo -->
-    <script src="./js/perfil.js"></script>
+  <script src="jogo.js"></script>
 </body>
 </html>
